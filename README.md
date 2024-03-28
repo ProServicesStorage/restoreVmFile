@@ -5,6 +5,6 @@ This script loops through feeder txt file with one VMWare VM per line and restor
 - Create folder `C:\cvscripts` and run script from this folder
 - Change the @body fileoption and destination sections to specify the file to be restored
 - Change the @body guestUserPassword. Convert your password to base64. You can use this [site](https://base64.guru/converter)
-- Recommend generating the JSON via the Command Center Equivalent API option then using below as a reference for variable replacement
+- Recommend generating the JSON via the Command Center Equivalent API option then using below as a reference for variable replacement. This also converts your password to base64 automatically!
 
 Yes, I know!! The script has too many manual steps and could be improved. Maybe some time later or one of you could tidy it up!
