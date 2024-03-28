@@ -5,7 +5,6 @@ Create folder C:\cvscripts and run script from this folder
 Change the @body fileoption and destination sections to specify the file to be restored
 Change the @body guestUserPassword. Convert your password to base64. You can use https://base64.guru/converter
 Recommend generating the JSON via the Command Center Equivalent API option then using below as a reference for variable replacement
-Yes I know!! The script has too many manual steps and could be improved.
 #>
 
 # Setup logging
@@ -15,9 +14,9 @@ $Logfile = "C:\cvscripts\restoreVmFile.log"
 $vms = Get-Content -path C:\cvScripts\vmlist.txt
 
 # Specify the client name for the HyperVisor here. NOTE: This is not the hostname of the VCenter server but rather the client name as defined in Commvault.
-$hypervisor = 'ESX2'
+$hypervisor = 'VCenter1'
 
-$cs = "https://commserve1.cv.lab"
+$cs = "https://mywebserver.company.lab"
 
 function WriteLog
 {
@@ -125,7 +124,7 @@ foreach ($vm in $vms) {
                         ],
                         "destClient": {
                         "clientId": 2,
-                        "clientName": "commserve1"
+                        "clientName": "myVsaProxy"
                         },
                         "inPlace": false,
                         "isLegalHold": false
@@ -146,7 +145,7 @@ foreach ($vm in $vms) {
                         "vmName": "$vm",
                         "guestUserPassword": {
                             "userName": "$vm\\administrator",
-                            "password": "Q81tbTZhdRx0INI="
+                            "password": "My base64 password"
                         }
                         },
                         "vCenterInstance": {
